@@ -1,13 +1,26 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;                TILES
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Constants -- data size & count are **important** -- must be exact
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 image_tile_map_size EQU 320
 image_tile_map_width EQU 20
 image_tile_map_height EQU 18
 
-image_tile_data_size EQU $90
-image_tile_count EQU 9
+image_tile_data_size EQU $440
+image_tile_count EQU 68
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 image_tile_data:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; blank 0
+; tile 0 : blank
 DB %0000_0000,\
    %0000_0000,\
    \
@@ -32,7 +45,7 @@ DB %0000_0000,\
    %0000_0000,\
    %0000_0000
 
-; top left pixel 1
+; tile 1 : top left pixel 1
 DB %1111_1111,\
    %1111_1111,\
    \
@@ -57,7 +70,7 @@ DB %1111_1111,\
    %0000_0000,\
    %0000_0000
 
-; bottom right pixel 2
+; tile 2 : bottom right pixel 2
 DB %0000_0000,\
    %0000_0000,\
    \
@@ -82,202 +95,302 @@ DB %0000_0000,\
    %0000_0001,\
    %0000_0001
 
-DB $11,$11,$39,$39,$7D,$7D,$B2,$B2,$B0,$B0,$18,$18,$24,$24,$44,$44 ; 8x8 person 3
-DB $18,$18,$18,$18,$3C,$3C,$7E,$7E,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD ; 8x16 person 4, 5
+; tile 3 : 8x8 person
+DB $11,$11,$39,$39,$7D,$7D,$B2,$B2,$B0,$B0,$18,$18,$24,$24,$44,$44
+
+; tiles 4 and 5 : 8x16 person
+DB $18,$18,$18,$18,$3C,$3C,$7E,$7E,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD
 DB $BD,$BD,$7E,$7E,$24,$24,$24,$24,$24,$24,$24,$24,$24,$24,$24,$24
-DB $00,$00,$18,$18,$5A,$5A,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD ; jumping 8x16 person 6,7
+
+; tiles 6 and 7 : jumping 8x16 person
+DB $00,$00,$18,$18,$5A,$5A,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD,$BD
 DB $3C,$3C,$24,$24,$42,$42,$42,$42,$24,$24,$24,$24,$00,$00,$00,$00
-DB $00,$FF,$7F,$80,$67,$80,$43,$80,$43,$80,$67,$80,$7F,$80,$7F,$80 ; med-crate 8
 
+; tile 8 : med-crate
+DB $00,$FF,$7F,$80,$67,$80,$43,$80,$43,$80,$67,$80,$7F,$80,$7F,$80
+
+; alphabet
+DB $00,$00,$1C,$1C,$36,$36,$36,$36,$36,$36,$36,$36,$1C,$1C,$00,$00 ; tile 9 : 0
+DB $00,$00,$0C,$0C,$1C,$1C,$0C,$0C,$0C,$0C,$0C,$0C,$1E,$1E,$00,$00 ; tile 10 : 1
+DB $00,$00,$1C,$1C,$36,$36,$06,$06,$0C,$0C,$18,$18,$3E,$3E,$00,$00 ; t11 2
+DB $00,$00,$1C,$1C,$36,$36,$0C,$0C,$06,$06,$36,$36,$1C,$1C,$00,$00 ; t12 3
+DB $00,$00,$0C,$0C,$1C,$1C,$2C,$2C,$3E,$3E,$0C,$0C,$0C,$0C,$00,$00 ; t13 4
+DB $00,$00,$3C,$3C,$30,$30,$38,$38,$0C,$0C,$0C,$0C,$30,$38,$00,$00 ; t14 5
+DB $00,$00,$18,$18,$30,$30,$30,$30,$3C,$3C,$34,$34,$1C,$1C,$00,$00 ; t15 6
+DB $00,$00,$3E,$3E,$06,$06,$0C,$0C,$0C,$0C,$18,$18,$10,$10,$00,$00 ; t16 7
+DB $00,$00,$1C,$1C,$36,$36,$1C,$1C,$36,$36,$36,$36,$1C,$1C,$00,$00 ; t17 8
+DB $00,$00,$1C,$1C,$36,$36,$3E,$3E,$1E,$1E,$06,$06,$06,$06,$00,$00 ; t18 9
+DB $00,$00,$1C,$1C,$36,$36,$36,$36,$3E,$3E,$36,$36,$36,$36,$00,$00 ; t20 A
+DB $00,$00,$3C,$3C,$36,$36,$3C,$3C,$36,$36,$36,$36,$3C,$3C,$00,$00 ; t21 B
+DB $00,$00,$1E,$1E,$3E,$3E,$38,$38,$38,$38,$3E,$3E,$1E,$1E,$00,$00 ; t22 C
+DB $00,$00,$3C,$3C,$2E,$2E,$2E,$2E,$3E,$3E,$3E,$3E,$3C,$3C,$00,$00 ; t23 D
+DB $00,$00,$3E,$3E,$38,$38,$3E,$3E,$38,$38,$38,$38,$3E,$3E,$00,$00 ; t24 E
+DB $00,$00,$3E,$3E,$38,$38,$3E,$3E,$38,$38,$38,$38,$38,$38,$00,$00 ; t25 F
+DB $00,$00,$3C,$3C,$66,$66,$60,$60,$6E,$6E,$66,$66,$3C,$3C,$00,$00 ; t26 G
+DB $00,$00,$32,$32,$32,$32,$3E,$3E,$3E,$3E,$32,$32,$32,$32,$00,$00 ; t27 H
+DB $00,$00,$3E,$3E,$1C,$1C,$1C,$1C,$1C,$1C,$1C,$1C,$3E,$3E,$00,$00 ; t28 I
+DB $00,$00,$3E,$3E,$0C,$0C,$0C,$0C,$0C,$0C,$2C,$2C,$18,$18,$00,$00 ; t29 J
+DB $00,$00,$36,$36,$36,$36,$3C,$3C,$3C,$3C,$36,$36,$36,$36,$00,$00 ; t30 K
+DB $00,$00,$30,$30,$30,$30,$30,$30,$30,$30,$3E,$3E,$3E,$3E,$00,$00 ; t31 L
+DB $00,$00,$7E,$7E,$6A,$6A,$6A,$6A,$6A,$6A,$6A,$6A,$6A,$6A,$00,$00 ; t32 M
+DB $00,$00,$7A,$7A,$6A,$6A,$6A,$6A,$6A,$6A,$6A,$6A,$6E,$6E,$00,$00 ; t33 N
+DB $00,$00,$3C,$3C,$36,$36,$36,$36,$3C,$3C,$30,$30,$30,$30,$00,$00 ; t34 O
+DB $00,$00,$1C,$1C,$72,$72,$72,$72,$7A,$7A,$76,$76,$3E,$3E,$01,$01 ; t35 P
+DB $00,$00,$7C,$7C,$76,$76,$7E,$7E,$7C,$7C,$78,$78,$6E,$6E,$66,$66 ; t36 Q
+DB $00,$00,$3C,$3C,$72,$72,$38,$38,$0E,$0E,$4E,$4E,$3E,$3E,$3C,$3C ; t37 R
+DB $00,$00,$7E,$7E,$7E,$7E,$18,$18,$18,$18,$18,$18,$18,$18,$18,$18 ; t38 S
+DB $00,$00,$36,$36,$36,$36,$36,$36,$36,$36,$36,$36,$3E,$3E,$1C,$1C ; t39 T
+DB $00,$00,$63,$63,$63,$63,$36,$36,$36,$36,$1C,$1C,$1C,$1C,$18,$18 ; t40 U
+DB $00,$00,$56,$56,$56,$56,$56,$56,$56,$56,$56,$56,$7E,$7E,$00,$00 ; t41 V
+DB $00,$00,$63,$63,$36,$36,$1C,$1C,$1C,$1C,$36,$36,$63,$63,$00,$00 ; t42 W
+DB $00,$00,$33,$33,$33,$33,$16,$16,$0C,$0C,$18,$18,$30,$30,$00,$00 ; t43 X
+DB $00,$00,$7E,$7E,$7E,$7E,$06,$06,$0C,$0C,$30,$30,$7E,$7E,$7E,$7E ; t44 Y
+DB $06,$06,$0E,$0E,$1C,$1C,$1C,$1C,$38,$38,$00,$00,$60,$60,$60,$60 ; t45 Z
+DB $0E,$0E,$13,$13,$03,$03,$1F,$1F,$1C,$1C,$10,$10,$60,$60,$60,$60 ; t46 !
+DB $00,$00,$6C,$6C,$6C,$6C,$24,$24,$00,$00,$00,$00,$00,$00,$00,$00 ; t47 ?
+DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$60,$60,$60,$60 ; t48 "
+DB $00,$00,$00,$00,$00,$00,$00,$00,$60,$60,$60,$60,$20,$20,$40,$40 ; t49 .
+DB $08,$08,$10,$10,$30,$30,$30,$30,$30,$30,$30,$30,$10,$10,$08,$08 ; t50,
+DB $20,$20,$10,$10,$18,$18,$18,$18,$18,$18,$18,$18,$10,$10,$20,$20 ; t51(
+DB $00,$00,$60,$60,$60,$60,$00,$00,$00,$00,$60,$60,$60,$60,$00,$00 ; t52 )
+DB $00,$00,$60,$60,$60,$60,$00,$00,$60,$60,$60,$60,$20,$20,$40,$40 ; t53 :
+DB $00,$00,$00,$00,$3E,$3E,$3E,$3E,$00,$00,$3E,$3E,$3E,$3E,$00,$00 ; t54 ;
+DB $00,$00,$18,$18,$18,$18,$7E,$7E,$7E,$7E,$18,$18,$18,$18,$00,$00 ; t55 =
+DB $00,$00,$00,$00,$00,$00,$3E,$3E,$3E,$3E,$00,$00,$00,$00,$00,$00 ; t56 +
+DB $04,$04,$0C,$0C,$08,$08,$18,$18,$10,$10,$30,$30,$20,$20,$20,$20 ; t57 -
+DB $02,$02,$66,$66,$6C,$6C,$18,$18,$30,$30,$26,$26,$46,$46,$00,$00 ; t58 /
+DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; t59 %
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;                   MAPS
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 image_map_data:
-   DB 08,08,08,08,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 08,08,08,08,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 08,08,08,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
-   DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+DB 08,08,08,08,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 08,08,08,08,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 08,08,08,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
 
+DB 09,10,11,12,  13,14,15,16,  17,18,19,20,  21,22,23,24,  25,26,27,28
+DB 29,30,31,32,  33,34,35,36,  37,38,39,40,  41,42,43,44,  45,46,47,48
+DB 49,50,51,52,  53,54,55,56,  57,58,59,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+DB 00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00,  00,00,00,00
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 GBCPaletteMap :
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 2 ,2 ,2 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
-   DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 2 ,2 ,2 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
+DB 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;                PALETTES
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 GBCBackgroundPalettes:
-   ; green
-   DB %11111111 ; Color 0 , palette 0 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 0 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 0 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 0 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 0 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 0 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 0 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 0 , %0 bbbbbgg
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; grayscale 
+DB %11111111 ; Color 0 , palette 0 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 0 , %0 bbbbbgg
+DB %01001010 ; Color 1 , palette 0 , % gggrrrrr
+DB %00101001 ; Color 1 , palette 0 , %0 bbbbbgg
+DB %11000110 ; Color 2 , palette 0 , % gggrrrrr
+DB %00011000 ; Color 2 , palette 0 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 0 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 0 , %0 bbbbbgg
 
-   ; red
-   DB %11111111 ; Color 0 , palette 1 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 1 , %0 bbbbbgg
-   DB %00011111 ; Color 1 , palette 1 , % gggrrrrr
-   DB %00000000 ; Color 1 , palette 1 , %0 bbbbbgg
-   DB %00011111 ; Color 2 , palette 1 , % gggrrrrr
-   DB %00100000 ; Color 2 , palette 1 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 1 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 1 , %0 bbbbbgg
+; red
+DB %10111111 ; Color 0 , palette 1 , % gggrrrrr
+DB %01010110 ; Color 0 , palette 1 , %0 bbbbbgg
+DB %00011111 ; Color 1 , palette 1 , % gggrrrrr
+DB %00100000 ; Color 1 , palette 1 , %0 bbbbbgg
+DB %00011111 ; Color 2 , palette 1 , % gggrrrrr
+DB %00000000 ; Color 2 , palette 1 , %0 bbbbbgg
+DB %00001010 ; Color 3 , palette 1 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 1 , %0 bbbbbgg
 
-   ; blue
-   DB %11111111 ; Color 0 , palette 2 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 2 , %0 bbbbbgg
-   DB %00000000 ; Color 1 , palette 2 , % gggrrrrr
-   DB %01111100 ; Color 1 , palette 2 , %0 bbbbbgg
-   DB %00001000 ; Color 2 , palette 2 , % gggrrrrr
-   DB %01111111 ; Color 2 , palette 2 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 2 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 2 , %0 bbbbbgg
+; blue
+DB %10101010 ; Color 0 , palette 2 , % gggrrrrr
+DB %01111110 ; Color 0 , palette 2 , %0 bbbbbgg
+DB %00000000 ; Color 1 , palette 2 , % gggrrrrr
+DB %01111100 ; Color 1 , palette 2 , %0 bbbbbgg
+DB %00001000 ; Color 2 , palette 2 , % gggrrrrr
+DB %01111111 ; Color 2 , palette 2 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 2 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 2 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 3 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 3 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 3 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 3 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 3 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 3 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 3 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 3 , %0 bbbbbgg
+DB %11111111 ; Color 0 , palette 3 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 3 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 3 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 3 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 3 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 3 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 3 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 3 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 4 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 4 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 4 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 4 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 4 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 4 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 4 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 4 , %0 bbbbbgg
+DB %11111111 ; Color 0 , palette 4 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 4 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 4 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 4 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 4 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 4 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 4 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 4 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 5 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 5 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 5 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 5 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 5 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 5 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 5 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 5 , %0 bbbbbgg
+DB %11111111 ; Color 0 , palette 5 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 5 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 5 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 5 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 5 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 5 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 5 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 5 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 6 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 6 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 6 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 6 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 6 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 6 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 6 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 6 , %0 bbbbbgg
+DB %11111111 ; Color 0 , palette 6 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 6 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 6 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 6 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 6 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 6 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 6 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 6 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 7 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 7 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 7 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 7 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 7 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 7 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 7 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 7 , %0 bbbbbgg
+DB %11111111 ; Color 0 , palette 7 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 7 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 7 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 7 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 7 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 7 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 7 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 7 , %0 bbbbbgg
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 GBCSpritePalettes:
-   DB %11111111 ; Color 0 , palette 0 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 0 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 0 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 0 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 0 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 0 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 0 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 0 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 1 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 1 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 1 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 1 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 1 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 1 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 1 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 1 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 2 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 2 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 2 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 2 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 2 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 2 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 2 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 2 , %0 bbbbbgg
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-   DB %11111111 ; Color 0 , palette 3 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 3 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 3 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 3 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 3 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 3 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 3 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 3 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 4 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 4 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 4 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 4 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 4 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 4 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 4 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 4 , %0 bbbbbgg
+; grayscale 
+DB %11111111 ; Color 0 , palette 0 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 0 , %0 bbbbbgg
+DB %01001010 ; Color 1 , palette 0 , % gggrrrrr
+DB %00101001 ; Color 1 , palette 0 , %0 bbbbbgg
+DB %11000110 ; Color 2 , palette 0 , % gggrrrrr
+DB %00011000 ; Color 2 , palette 0 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 0 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 0 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 5 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 5 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 5 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 5 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 5 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 5 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 5 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 5 , %0 bbbbbgg
+; red
+DB %10111111 ; Color 0 , palette 1 , % gggrrrrr
+DB %01010110 ; Color 0 , palette 1 , %0 bbbbbgg
+DB %00011111 ; Color 1 , palette 1 , % gggrrrrr
+DB %00100000 ; Color 1 , palette 1 , %0 bbbbbgg
+DB %00011111 ; Color 2 , palette 1 , % gggrrrrr
+DB %00000000 ; Color 2 , palette 1 , %0 bbbbbgg
+DB %00001010 ; Color 3 , palette 1 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 1 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 6 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 6 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 6 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 6 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 6 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 6 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 6 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 6 , %0 bbbbbgg
+; blue
+DB %10101010 ; Color 0 , palette 2 , % gggrrrrr
+DB %01111110 ; Color 0 , palette 2 , %0 bbbbbgg
+DB %00000000 ; Color 1 , palette 2 , % gggrrrrr
+DB %01111100 ; Color 1 , palette 2 , %0 bbbbbgg
+DB %00001000 ; Color 2 , palette 2 , % gggrrrrr
+DB %01111111 ; Color 2 , palette 2 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 2 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 2 , %0 bbbbbgg
 
-   DB %11111111 ; Color 0 , palette 7 , % gggrrrrr
-   DB %01111111 ; Color 0 , palette 7 , %0 bbbbbgg
-   DB %11100011 ; Color 1 , palette 7 , % gggrrrrr
-   DB %00011111 ; Color 1 , palette 7 , %0 bbbbbgg
-   DB %11100001 ; Color 2 , palette 7 , % gggrrrrr
-   DB %00001001 ; Color 2 , palette 7 , %0 bbbbbgg
-   DB %00000000 ; Color 3 , palette 7 , % gggrrrrr
-   DB %00000000 ; Color 3 , palette 7 , %0 bbbbbgg
+DB %11111111 ; Color 0 , palette 3 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 3 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 3 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 3 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 3 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 3 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 3 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 3 , %0 bbbbbgg
+
+DB %11111111 ; Color 0 , palette 4 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 4 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 4 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 4 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 4 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 4 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 4 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 4 , %0 bbbbbgg
+
+DB %11111111 ; Color 0 , palette 5 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 5 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 5 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 5 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 5 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 5 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 5 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 5 , %0 bbbbbgg
+
+DB %11111111 ; Color 0 , palette 6 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 6 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 6 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 6 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 6 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 6 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 6 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 6 , %0 bbbbbgg
+
+DB %11111111 ; Color 0 , palette 7 , % gggrrrrr
+DB %01111111 ; Color 0 , palette 7 , %0 bbbbbgg
+DB %11100011 ; Color 1 , palette 7 , % gggrrrrr
+DB %00011111 ; Color 1 , palette 7 , %0 bbbbbgg
+DB %11100001 ; Color 2 , palette 7 , % gggrrrrr
+DB %00001001 ; Color 2 , palette 7 , %0 bbbbbgg
+DB %00000000 ; Color 3 , palette 7 , % gggrrrrr
+DB %00000000 ; Color 3 , palette 7 , %0 bbbbbgg

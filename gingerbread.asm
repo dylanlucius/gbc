@@ -733,7 +733,7 @@ IF DEF(GBC_SUPPORT)
 
 SECTION "GBC commands",ROM0
 
-GBCEarlyExit: MACRO
+MACRO GBCEarlyExit
     ld a, [RUNNING_ON_GBC]
     cp 0
     ret z
