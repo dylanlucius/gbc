@@ -44,10 +44,7 @@ ENDM
 SECTION "OAM Vars",WRAM0[$C100]
     player_sprite: DS 4 ; assign 4 bytes with <-- name in OAM
 
-
-
-
-SECTION "Text definitions",ROM0 
+    SECTION "Text definitions",ROM0 
 ; Charmap definition (based on the hello_world.png image, and looking in the VRAM viewer after loading it in BGB helps finding the values for each character)
 CHARMAP "0",$09
 CHARMAP "1",$0A
@@ -104,7 +101,8 @@ CHARMAP "%",$39
 CHARMAP "<end>",$00 ; Choose some non-character tile that's easy to remember 
     
 SomeText:
-DB "0123<end>"
+DB "WIND0W<end>"
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -137,11 +135,11 @@ SetupGBC: ;needed for gbc in gingerbread
     ld b , 64 ; We have 16 bytes to write
     call GBCApplySpritePalettes
 
-    ; set registers for display routines
+    ; set registers for display routine
     ld hl, image_tile_data ;source
     ld de, TILEDATA_START  ;dest
     ld bc, image_tile_data_size
-
+    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
@@ -150,43 +148,39 @@ SetupGBC: ;needed for gbc in gingerbread
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 main:
-    
-    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;              DISPLAY
-    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;            DISPLAY ROUTINE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-    ; all display code needs to happen between here (start)...
+
     call mCopyVRAM
-
-    ; "when you switch the vram bank" you can write to the correct area for palette map
     ld a , 1
-    ld [ GBC_VRAM_BANK_SWITCH ] , a
-    CopyRegionToVRAM 18,20,GBCPaletteMap,BACKGROUND_MAPDATA_START
-    ; "... then switch back"
+    ld [GBC_VRAM_BANK_SWITCH] , a
+    CopyRegionToVRAM 18,20,GBCPaletteMap,BACKGROUND_MAPDATA_START+384
     xor a
-    ld [ GBC_VRAM_BANK_SWITCH ] , a
+    ld [GBC_VRAM_BANK_SWITCH] , a
 
-    ; "... and write the regular tile data to vram"
-    CopyRegionToVRAM 18 , 20 , image_map_data ,BACKGROUND_MAPDATA_START
+    CopyRegionToVRAM 18,20,image_map_data,BACKGROUND_MAPDATA_START+384
+
+    call StartLCD
+
+    
 
     ld b, $00 ; end character 
-    ld c, 0 ; draw to background
-    ld d, 4 ; X start position (0-19)
-    ld e, 8 ; Y start position (0-17)
+    ld c, 1; draw to window
+    ld d, 6 ; X start position (0-19)
+    ld e, 11 ; Y start position (0-17)
     ld hl, SomeText ; text to write 
     call RenderTextToEnd
 
-    ; ... and here (end) -- for some reason
-    call StartLCD
-  
-    
-  
-
-    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    ;           INPUT CHECK
-    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    call StopLCD
+    call TurnOnWindow
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;        CHECK INPUT ROUTINE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     ; START
     call ReadKeys
@@ -220,15 +214,22 @@ main:
     call ReadKeys
     and KEY_RIGHT
     jp nz, input_right
-
-    ; end of input check (LOOP)
-    jp z, main
+ 
+    jp main  ; end of main loop
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
-;             INPUT RESPONSE
+;             INPUT RESPONSES
 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -240,6 +241,7 @@ input_start:
 
 input_select:
     dbg "pressed Select"
+
     xor a
     jp main
 
