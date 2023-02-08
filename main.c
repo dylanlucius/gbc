@@ -1,10 +1,10 @@
 #include <gb/gb.h>
 #include <stdio.h>
-#include "Player.h"
-#include "MapTiles.c"
-#include "Map.c"
+#include "spritetiles.h"
+#include "bgtiles.c"
+#include "bgmap.c"
 #include <gbdk/font.h>
-#include "WindowMap.c"
+#include "windowmap.c"
 #include <gb/cgb.h>
 #include "hUGEDriver.h"
 

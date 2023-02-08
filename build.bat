@@ -20,9 +20,9 @@ tools\rgbasm -DGBDK -o%OBJ%/%DRV%.obj hUGEDriver.asm
 py tools\rgb2sdas.py %CVTFLAGS% -o %OBJ%\%DRV%.o %OBJ%\%DRV%.obj
 %GBDK%\bin\sdar -ru %OBJ%\hUGEDriver.lib %OBJ%\%DRV%.o
 
-%GBDK%\bin\lcc -Wa-l -Wl-m -Wl-j -c -o Player.o Player.c
+%GBDK%\bin\lcc -Wa-l -Wl-m -Wl-j -c -o spritetiles.o spritetiles.c
 %GBDK%\bin\lcc -Wa-l -Wl-m -Wl-j -c -o %PROJ%.o %PROJ%.c
-%GBDK%\bin\lcc -Wl-m -Wl-w -Wl-j -Wl-yp0x143=0x80 -Wm-yS -Wl-k%OBJ% -Wl-lhUGEDriver.lib -o gbc.gb %PROJ%.c c:/gbc/song/C/%MOD%.c Player.o
+%GBDK%\bin\lcc -Wl-m -Wl-w -Wl-j -Wl-yp0x143=0x80 -Wm-yS -Wl-k%OBJ% -Wl-lhUGEDriver.lib -o gbc.gb %PROJ%.c c:/gbc/song/C/%MOD%.c spritetiles.o
 
 move hUGEDriver.asm obj
 
