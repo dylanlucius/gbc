@@ -28,6 +28,8 @@ py tools\rgb2sdas.py %CVTFLAGS% -o %OBJ%\%DRV%.o %OBJ%\%DRV%.obj
 
 %GBDK%\bin\lcc -Wa-l -Wl-m -Wl-j -c -o Player.o Player.c
 %GBDK%\bin\lcc -Wa-l -Wl-m -Wl-j -c -o %PROJ%.o %PROJ%.c
-%GBDK%\bin\lcc -Wl-m -Wl-w -Wl-j -Wl-yp0x143=0x80 -Wm-yS -Wl-k%OBJ% -Wl-lhUGEDriver.lib -o %PROJ%.gb %PROJ%.c c:/gbc_dx/%MOD%.c Player.o
+%GBDK%\bin\lcc -Wl-m -Wl-w -Wl-j -Wl-yp0x143=0x80 -Wm-yS -Wl-k%OBJ% -Wl-lhUGEDriver.lib -o %PROJ%.gb %PROJ%.c c:/users/admin/desktop/gbc-c192b9693f16fc57eccd76c7a1526f1e3b083aa4/song/C/%MOD%.c Player.o
+
+del *.lst *.o *.sym *.map *.noi
 
 @echo DONE!

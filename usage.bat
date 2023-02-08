@@ -1,1 +1,0 @@
-@python .\tools\romusage.py .\rom\gbdk_player.gb
