@@ -1,286 +1,65 @@
-; no$gmb compatible .sym file
-; Generated automagically by makebin
-00:0000 _rRAMG
-00:0000 l__BASE
-00:0000 l__BSS
-00:0000 l__CABS
-00:0000 l__CODE_0
-00:0000 l__DABS
-00:0000 l__FONT_HEADER
-00:0000 l__HEADER
-00:0000 l__HEADER_LCD
-00:0000 l__HEAP
-00:0000 l__HEAP_END
-00:0000 l__HRAM
-00:0000 l__LIT
-00:0000 s__CABS
-00:0000 s__DABS
-00:0000 s__FONT_HEADER
-00:0000 s__FONT_HEADER0
-00:0000 s__HEADER
-00:0000 s__HEADER0
-00:0000 s__HEADER1
-00:0000 s__HEADER10
-00:0000 s__HEADER11
-00:0000 s__HEADER2
-00:0000 s__HEADER3
-00:0000 s__HEADER4
-00:0000 s__HEADER5
-00:0000 s__HEADER6
-00:0000 s__HEADER7
-00:0000 s__HEADER8
-00:0000 s__HEADER9
-00:0000 s__HEADER_LCD
-00:0000 s__HEADER_LCD0
-00:0000 s__HEADERa
-00:0000 s__HEADERb
-00:0000 s__HEADERc
-00:0000 s__HEADERd
-00:0000 s__HEADERe
-00:0000 s__HEADERf
-00:0000 s__HRAM
-00:0000 s__HRAM12
-00:0001 l__GSFINAL
-00:0001 l__HEADER0
-00:0001 l__HEADER11
-00:0001 l__HEADER9
-00:0001 l__HEADERa
-00:0001 l__HEADERb
-00:0001 l__HEADERd
-00:0001 l__HEADERe
-00:0002 l__HEADER5
-00:0002 l__HEADERc
-00:0002 l__HEADERf
-00:0003 l__FONT_HEADER0
-00:0003 l__HEADER8
-00:0003 l__HEADER_LCD0
-00:0003 l__HRAM12
-00:0005 l__HEADER1
-00:0006 l__HEADER7
-00:0007 l__HEADER2
-00:0008 l__HEADER3
-00:000C l__GSINIT
-00:0030 l__HEADER6
-00:004C l__HEADER4
-00:0075 l__DATA
-00:0084 l__HEADER10
-00:01F4 l__INITIALIZED
-00:01F4 l__INITIALIZER
-00:0200 s__CODE
-00:0A4E l__HOME
-00:0D86 l__CODE
-00:0F86 s__HOME
-00:19D4 s__BASE
-00:19D4 s__CODE_0
-00:19D4 s__INITIALIZER
-00:19D4 s__LIT
-00:1BC8 s__GSINIT
-00:1BD4 s__GSFINAL
-00:2000 _rROMB0
-00:3000 _rROMB1
-00:4000 _rRAMB
-00:8000 __VRAM
-00:8000 __VRAM8000
-00:8800 __VRAM8800
-00:9000 __VRAM9000
-00:9800 __SCRN0
-00:9C00 __SCRN1
-00:A000 __SRAM
-00:C000 __RAM
-00:C000 _shadow_OAM
-00:C0A0 s__DATA
-00:C115 s__BSS
-00:C115 s__INITIALIZED
-00:C309 s__HEAP
-00:C309 s__HEAP_END
-00:D000 __RAMBANK
-00:E000 .STACK
-00:FE00 __OAMRAM
-00:FF00 _P1_REG
-00:FF00 __IO
-00:FF01 _SB_REG
-00:FF02 _SC_REG
-00:FF04 _DIV_REG
-00:FF05 _TIMA_REG
-00:FF06 _TMA_REG
-00:FF07 _TAC_REG
-00:FF0F _IF_REG
-00:FF10 _NR10_REG
-00:FF11 _NR11_REG
-00:FF12 _NR12_REG
-00:FF13 _NR13_REG
-00:FF14 _NR14_REG
-00:FF16 _NR21_REG
-00:FF17 _NR22_REG
-00:FF18 _NR23_REG
-00:FF19 _NR24_REG
-00:FF1A _NR30_REG
-00:FF1B _NR31_REG
-00:FF1C _NR32_REG
-00:FF1D _NR33_REG
-00:FF1E _NR34_REG
-00:FF20 _NR41_REG
-00:FF21 _NR42_REG
-00:FF22 _NR43_REG
-00:FF23 _NR44_REG
-00:FF24 _NR50_REG
-00:FF25 _NR51_REG
-00:FF26 _NR52_REG
-00:FF30 _AUD3WAVE
-00:FF30 _PCM_SAMPLE
-00:FF30 __AUD3WAVERAM
-00:FF40 _LCDC_REG
-00:FF41 _STAT_REG
-00:FF42 _SCY_REG
-00:FF43 _SCX_REG
-00:FF44 _LY_REG
-00:FF45 _LYC_REG
-00:FF46 _DMA_REG
-00:FF47 _BGP_REG
-00:FF48 _OBP0_REG
-00:FF49 _OBP1_REG
-00:FF4A _WY_REG
-00:FF4B _WX_REG
-00:FF4D _KEY1_REG
-00:FF4F _VBK_REG
-00:FF51 _HDMA1_REG
-00:FF52 _HDMA2_REG
-00:FF53 _HDMA3_REG
-00:FF54 _HDMA4_REG
-00:FF55 _HDMA5_REG
-00:FF56 _RP_REG
-00:FF68 _BCPS_REG
-00:FF69 _BCPD_REG
-00:FF6A _OCPS_REG
-00:FF6B _OCPD_REG
-00:FF70 _SVBK_REG
-00:FF76 _PCM12_REG
-00:FF77 _PCM34_REG
-00:FF80 .refresh_OAM
-00:FF80 __HRAM
-00:FFFF _IE_REG
-00:0200 _main
-00:031F _background_palette
-00:0327 _sprite_palette
-00:0856 _song
-00:086B _hUGE_init_banked
-00:086F _hUGE_init
-00:087A _hUGE_mute_channel_banked
-00:087E _hUGE_mute_channel
-00:088B _hUGE_set_position_banked
-00:088F _hUGE_set_position
-00:0898 hUGE_init
-00:08EE hUGE_mute_channel
-00:0AE4 hUGE_set_position
-00:0C4C _hUGE_dosound
-00:0C4C _hUGE_dosound_banked
-00:0C4C hUGE_dosound
-00:0F3B _set_sprite_palette
-00:0F40 _set_bkg_palette
-00:0F43 .set_palette
-00:0F62 _set_sprite_palette_entry
-00:0F67 _set_bkg_palette_entry
-00:0F6A .set_palette_entry
-00:0020 .call_hl
-00:0028 .MemsetSmall
-00:0030 .MemcpySmall
-00:0080 .int
-00:008F _wait_int_handler
-00:009C __standard_VBL_handler
-00:00AC _refresh_OAM
-00:0150 .reset
-00:0150 _reset
-00:0157 .code_start
-00:01B9 _exit
-00:01BD _set_interrupts
-00:0F86 .memset_simple
-00:0F8F .memcpy_simple
-00:0FAC .remove_VBL
-00:0FAF .remove_int
-00:0FCC .add_VBL
-00:0FCF .add_int
-00:0FDA .wait_vbl_done
-00:0FDA _wait_vbl_done
-00:0FEA .display_off
-00:0FEA _display_off
-00:1002 _remove_VBL
-00:100D _add_VBL
-00:1018 _font_load_ibm
-00:101F font_load
-00:1067 font_copy_current
-00:109D font_set
-00:10AA .put_char
-00:10C2 .out_char
-00:10C8 .del_char
-00:111E _putchar
-00:1127 _setchar
-00:1130 _font_load
-00:113E _font_set
-00:114D _font_init
-00:116C .cls
-00:116C _cls
-00:118E _gotoxy
-00:1199 _posx
-00:11AA _posy
-00:11D2 .cr_curs
-00:11E7 .adv_curs
-00:1243 .tmode
-00:126C .tmode_out
-00:1275 _set_bkg_1bpp_data
-00:1275 _set_win_1bpp_data
-00:127D _set_sprite_1bpp_data
-00:12D5 _set_win_tiles
-00:12E9 _set_tile_data
-00:12EE _set_bkg_data
-00:12EE _set_win_data
-00:12F6 _set_sprite_data
-00:1326 .padup
-00:1326 _waitpadup
-00:1336 .jpad
-00:1336 _joypad
-00:135E _waitpad
-00:135F .wait_pad
-00:1366 _color
-00:1366 _set_1bpp_colors_ex
-00:1375 .drawing_vbl
-00:1380 .drawing_lcd
-00:13BC _add_LCD
-00:13C7 .add_LCD
-00:13CD _remove_LCD
-00:13D8 .remove_LCD
-00:13DE _font_ibm
-00:1790 .delay
-00:1790 _delay
-00:17BC _font_min
-00:1966 _set_bkg_tiles
-00:197A .set_xy_wtt
-00:1983 .set_xy_btt
-00:1992 .set_xy_tt
-00:1BC8 gsinit
-00:C0A0 __cpu
-00:C0A1 __is_GBA
-00:C0A2 .mode
-00:C0A3 .sys_time
-00:C0A3 _sys_time
-00:C0A5 .int_0x40
-00:C0B1 font_current
-00:C0B4 font_first_free_tile
-00:C0B5 font_table
-00:C0E3 _hUGE_current_wave
-00:C0E3 hUGE_current_wave
-00:C0E4 _hUGE_mute_mask
-00:C10D .int_0x48
-00:C115 _MapTiles
-00:C185 _Map
-00:C2ED _WindowMap
-00:C2F2 _PlayerCGB
-00:C2F3 _Player
-00:C303 .curx
-00:C304 .cury
-00:C305 .fg_colour
-00:C305 __current_1bpp_colors
-00:C306 .bg_colour
-00:C307 .draw_mode
-00:C308 __map_tile_offset
-00:FF90 __current_bank
-00:FF92 __shadow_OAM_base
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+    _LCDC_REG                                                      ****** GX
+  2 _Map                                                           000070 GR
+  2 _MapTiles                                                      000000 GR
+    _NR10_REG                                                      ****** GX
+    _NR11_REG                                                      ****** GX
+    _NR12_REG                                                      ****** GX
+    _NR13_REG                                                      ****** GX
+    _NR14_REG                                                      ****** GX
+    _NR50_REG                                                      ****** GX
+    _NR51_REG                                                      ****** GX
+    _NR52_REG                                                      ****** GX
+    _Player                                                        ****** GX
+    _WX_REG                                                        ****** GX
+    _WY_REG                                                        ****** GX
+  2 _WindowMap                                                     0001D8 GR
+  7 __xinit__Map                                                   000070 R
+  7 __xinit__MapTiles                                              000000 R
+  7 __xinit__WindowMap                                             0001D8 R
+    _add_VBL                                                       ****** GX
+  0 _background_palette                                            000121 GR
+    _delay                                                         ****** GX
+    _font_init                                                     ****** GX
+    _font_load                                                     ****** GX
+    _font_min                                                      ****** GX
+    _font_set                                                      ****** GX
+    _hUGE_dosound                                                  ****** GX
+    _hUGE_init                                                     ****** GX
+    _joypad                                                        ****** GX
+  0 _main                                                          000000 GR
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_palette                                               ****** GX
+    _set_bkg_tiles                                                 ****** GX
+    _set_sprite_data                                               ****** GX
+    _set_sprite_palette                                            ****** GX
+    _set_win_tiles                                                 ****** GX
+    _shadow_OAM                                                    ****** GX
+    _song                                                          ****** GX
+  0 _sprite_palette                                                000129 GR
+    _wait_vbl_done                                                 ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size    131   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size    1DD   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size    1DD   flags    0
+   8 _CABS                                      size      0   flags    8
+

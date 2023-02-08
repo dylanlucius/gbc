@@ -182,7 +182,9 @@ _main::
 	di
 ;main.c:59: hUGE_init(&song);
 	ld	de, #_song
+	push	de
 	call	_hUGE_init
+	pop	hl
 ;main.c:60: add_VBL(hUGE_dosound);
 	ld	de, #_hUGE_dosound
 	push	de

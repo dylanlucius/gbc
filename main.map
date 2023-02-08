@@ -85,14 +85,14 @@ Area                                    Addr        Size        Decimal Bytes (A
      000001F4  l__INITIALIZER                  
      00000200  s__CODE                         
      00000A4E  l__HOME                         
-     00000D86  l__CODE                         
-     00000F86  s__HOME                         
-     000019D4  s__BASE                         
-     000019D4  s__CODE_0                       
-     000019D4  s__INITIALIZER                  
-     000019D4  s__LIT                          
-     00001BC8  s__GSINIT                       
-     00001BD4  s__GSFINAL                      
+     00000D88  l__CODE                         
+     00000F88  s__HOME                         
+     000019D6  s__BASE                         
+     000019D6  s__CODE_0                       
+     000019D6  s__INITIALIZER                  
+     000019D6  s__LIT                          
+     00001BCA  s__GSINIT                       
+     00001BD6  s__GSFINAL                      
      00002000  _rROMB0                            
      00003000  _rROMB1                            
      00004000  _rRAMB                             
@@ -200,32 +200,32 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00000200    00000D86 =        3462. bytes (REL,CON)
+_CODE                               00000200    00000D88 =        3464. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      00000200  _main                              main
-     0000031F  _background_palette                main
-     00000327  _sprite_palette                    main
-     00000856  _song                              song
-     0000086B  _hUGE_init_banked                  hUGEDriver_obj
-     0000086F  _hUGE_init                         hUGEDriver_obj
-     0000087A  _hUGE_mute_channel_banked          hUGEDriver_obj
-     0000087E  _hUGE_mute_channel                 hUGEDriver_obj
-     0000088B  _hUGE_set_position_banked          hUGEDriver_obj
-     0000088F  _hUGE_set_position                 hUGEDriver_obj
-     00000898  hUGE_init                          hUGEDriver_obj
-     000008EE  hUGE_mute_channel                  hUGEDriver_obj
-     00000AE4  hUGE_set_position                  hUGEDriver_obj
-     00000C4C  _hUGE_dosound                      hUGEDriver_obj
-     00000C4C  _hUGE_dosound_banked               hUGEDriver_obj
-     00000C4C  hUGE_dosound                       hUGEDriver_obj
-     00000F3B  _set_sprite_palette                CGB
-     00000F40  _set_bkg_palette                   CGB
-     00000F43  .set_palette                       CGB
-     00000F62  _set_sprite_palette_entry          CGB
-     00000F67  _set_bkg_palette_entry             CGB
-     00000F6A  .set_palette_entry                 CGB
+     00000321  _background_palette                main
+     00000329  _sprite_palette                    main
+     00000858  _song                              song
+     0000086D  _hUGE_init_banked                  hUGEDriver_obj
+     00000871  _hUGE_init                         hUGEDriver_obj
+     0000087C  _hUGE_mute_channel_banked          hUGEDriver_obj
+     00000880  _hUGE_mute_channel                 hUGEDriver_obj
+     0000088D  _hUGE_set_position_banked          hUGEDriver_obj
+     00000891  _hUGE_set_position                 hUGEDriver_obj
+     0000089A  hUGE_init                          hUGEDriver_obj
+     000008F0  hUGE_mute_channel                  hUGEDriver_obj
+     00000AE6  hUGE_set_position                  hUGEDriver_obj
+     00000C4E  _hUGE_dosound                      hUGEDriver_obj
+     00000C4E  _hUGE_dosound_banked               hUGEDriver_obj
+     00000C4E  hUGE_dosound                       hUGEDriver_obj
+     00000F3D  _set_sprite_palette                CGB
+     00000F42  _set_bkg_palette                   CGB
+     00000F45  .set_palette                       CGB
+     00000F64  _set_sprite_palette_entry          CGB
+     00000F69  _set_bkg_palette_entry             CGB
+     00000F6C  .set_palette_entry                 CGB
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 Hexadecimal  [32-Bits]
@@ -411,88 +411,88 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_HOME                               00000F86    00000A4E =        2638. bytes (REL,CON)
+_HOME                               00000F88    00000A4E =        2638. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000F86  .memset_simple                     Runtime
-     00000F8F  .memcpy_simple                     Runtime
-     00000FAC  .remove_VBL                        Runtime
-     00000FAF  .remove_int                        Runtime
-     00000FCC  .add_VBL                           Runtime
-     00000FCF  .add_int                           Runtime
-     00000FDA  .wait_vbl_done                     Runtime
-     00000FDA  _wait_vbl_done                     Runtime
-     00000FEA  .display_off                       Runtime
-     00000FEA  _display_off                       Runtime
-     00001002  _remove_VBL                        Runtime
-     0000100D  _add_VBL                           Runtime
-     00001018  _font_load_ibm                     font.ms
-     0000101F  font_load                          font.ms
-     00001067  font_copy_current                  font.ms
-     0000109D  font_set                           font.ms
-     000010AA  .put_char                          font.ms
-     000010C2  .out_char                          font.ms
-     000010C8  .del_char                          font.ms
-     0000111E  _putchar                           font.ms
-     00001127  _setchar                           font.ms
-     00001130  _font_load                         font.ms
-     0000113E  _font_set                          font.ms
-     0000114D  _font_init                         font.ms
-     0000116C  .cls                               font.ms
-     0000116C  _cls                               font.ms
-     0000118E  _gotoxy                            font.ms
-     00001199  _posx                              font.ms
-     000011AA  _posy                              font.ms
-     000011D2  .cr_curs                           font.ms
-     000011E7  .adv_curs                          font.ms
-     00001243  .tmode                             font.ms
-     0000126C  .tmode_out                         font.ms
-     00001275  _set_bkg_1bpp_data                 
-     00001275  _set_win_1bpp_data                 
-     0000127D  _set_sprite_1bpp_data              
-     000012D5  _set_win_tiles                     
-     000012E9  _set_tile_data                     
-     000012EE  _set_bkg_data                      
-     000012EE  _set_win_data                      
-     000012F6  _set_sprite_data                   
-     00001326  .padup                             
-     00001326  _waitpadup                         
-     00001336  .jpad                              
-     00001336  _joypad                            
-     0000135E  _waitpad                           
-     0000135F  .wait_pad                          
-     00001366  _color                             
-     00001366  _set_1bpp_colors_ex                
-     00001375  .drawing_vbl                       
+     00000F88  .memset_simple                     Runtime
+     00000F91  .memcpy_simple                     Runtime
+     00000FAE  .remove_VBL                        Runtime
+     00000FB1  .remove_int                        Runtime
+     00000FCE  .add_VBL                           Runtime
+     00000FD1  .add_int                           Runtime
+     00000FDC  .wait_vbl_done                     Runtime
+     00000FDC  _wait_vbl_done                     Runtime
+     00000FEC  .display_off                       Runtime
+     00000FEC  _display_off                       Runtime
+     00001004  _remove_VBL                        Runtime
+     0000100F  _add_VBL                           Runtime
+     0000101A  _font_load_ibm                     font.ms
+     00001021  font_load                          font.ms
+     00001069  font_copy_current                  font.ms
+     0000109F  font_set                           font.ms
+     000010AC  .put_char                          font.ms
+     000010C4  .out_char                          font.ms
+     000010CA  .del_char                          font.ms
+     00001120  _putchar                           font.ms
+     00001129  _setchar                           font.ms
+     00001132  _font_load                         font.ms
+     00001140  _font_set                          font.ms
+     0000114F  _font_init                         font.ms
+     0000116E  .cls                               font.ms
+     0000116E  _cls                               font.ms
+     00001190  _gotoxy                            font.ms
+     0000119B  _posx                              font.ms
+     000011AC  _posy                              font.ms
+     000011D4  .cr_curs                           font.ms
+     000011E9  .adv_curs                          font.ms
+     00001245  .tmode                             font.ms
+     0000126E  .tmode_out                         font.ms
+     00001277  _set_bkg_1bpp_data                 
+     00001277  _set_win_1bpp_data                 
+     0000127F  _set_sprite_1bpp_data              
+     000012D7  _set_win_tiles                     
+     000012EB  _set_tile_data                     
+     000012F0  _set_bkg_data                      
+     000012F0  _set_win_data                      
+     000012F8  _set_sprite_data                   
+     00001328  .padup                             
+     00001328  _waitpadup                         
+     00001338  .jpad                              
+     00001338  _joypad                            
+     00001360  _waitpad                           
+     00001361  .wait_pad                          
+     00001368  _color                             
+     00001368  _set_1bpp_colors_ex                
+     00001377  .drawing_vbl                       
 ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_HOME                               00000F86    00000A4E =        2638. bytes (REL,CON)
+_HOME                               00000F88    00000A4E =        2638. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00001380  .drawing_lcd                       
-     000013BC  _add_LCD                           
-     000013C7  .add_LCD                           
-     000013CD  _remove_LCD                        
-     000013D8  .remove_LCD                        
-     000013DE  _font_ibm                          
-     00001790  .delay                             
-     00001790  _delay                             
-     000017BC  _font_min                          font_min
-     00001966  _set_bkg_tiles                     
-     0000197A  .set_xy_wtt                        SetTileMap
-     00001983  .set_xy_btt                        SetTileMap
-     00001992  .set_xy_tt                         SetTileMap
+     00001382  .drawing_lcd                       
+     000013BE  _add_LCD                           
+     000013C9  .add_LCD                           
+     000013CF  _remove_LCD                        
+     000013DA  .remove_LCD                        
+     000013E0  _font_ibm                          
+     00001792  .delay                             
+     00001792  _delay                             
+     000017BE  _font_min                          font_min
+     00001968  _set_bkg_tiles                     
+     0000197C  .set_xy_wtt                        SetTileMap
+     00001985  .set_xy_btt                        SetTileMap
+     00001994  .set_xy_tt                         SetTileMap
 ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_INITIALIZER                        000019D4    000001F4 =         500. bytes (REL,CON)
+_INITIALIZER                        000019D6    000001F4 =         500. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -501,18 +501,18 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_GSINIT                             00001BC8    0000000C =          12. bytes (REL,CON)
+_GSINIT                             00001BCA    0000000C =          12. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00001BC8  gsinit                             Runtime
+     00001BCA  gsinit                             Runtime
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_GSFINAL                            00001BD4    00000001 =           1. bytes (REL,CON)
+_GSFINAL                            00001BD6    00000001 =           1. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -595,9 +595,9 @@ _HEADER_LCD0                        00000000    00000003 =           3. bytes (A
 Files Linked                              [ module(s) ]
 
 c:\gbdk\lib/gb/crt0.o                     [ Runtime ]
-C:\Users\Admin\AppData\Local\Temp/lcc147960.o
+C:\Users\Admin\AppData\Local\Temp/lcc140760.o
                                           [ main ]
-C:\Users\Admin\AppData\Local\Temp/lcc147961.o
+C:\Users\Admin\AppData\Local\Temp/lcc140761.o
                                           [ song ]
 Player.o                                  [ Player ]
 
