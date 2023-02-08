@@ -6,6 +6,10 @@
 #include <gbdk/font.h>
 #include "WindowMap.c"
 #include <gb/cgb.h>
+#include "hUGEDriver.h"
+
+extern const hUGESong_t song;
+
 
 const UWORD background_palette[] = {
     RGB_BLUE, RGB_DARKBLUE, RGB_TEAL, RGB_BLACK
@@ -51,7 +55,14 @@ void main(){
     move_win(7,120);
     SHOW_WIN;
 
+    __critical {
+        hUGE_init(&song);
+        add_VBL(hUGE_dosound);
+    }
+
     while(1){
+        
+        wait_vbl_done();
 
         // if(current_sprite_index == 0){
         // current_sprite_index = 1;

@@ -2,7 +2,7 @@
 ; File Created by SDCC : free open source ISO C Compiler 
 ; Version 4.2.2 #13350 (MINGW64)
 ;--------------------------------------------------------
-	.module main
+	.module gbdk_player
 	.optsdcc -msm83
 	
 ;--------------------------------------------------------
@@ -66,15 +66,15 @@ _WindowMap::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;main.c:25: void main(){
+;gbdk_player.c:25: void main(){
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;main.c:28: NR52_REG = 0x80; //turn on sound
+;gbdk_player.c:28: NR52_REG = 0x80; //turn on sound
 	ld	a, #0x80
 	ldh	(_NR52_REG + 0), a
-;main.c:29: NR50_REG = 0x77; set_bkg_palette(0,1,&background_palette[0]);// set volumes for 4 channels
+;gbdk_player.c:29: NR50_REG = 0x77; set_bkg_palette(0,1,&background_palette[0]);// set volumes for 4 channels
 	ld	a, #0x77
 	ldh	(_NR50_REG + 0), a
 	ld	de, #_background_palette
@@ -84,21 +84,21 @@ _main::
 	push	af
 	call	_set_bkg_palette
 	add	sp, #4
-;main.c:30: NR51_REG = 0xFF; // designate all channels for use
+;gbdk_player.c:30: NR51_REG = 0xFF; // designate all channels for use
 	ld	a, #0xff
 	ldh	(_NR51_REG + 0), a
-;main.c:34: font_init();
+;gbdk_player.c:34: font_init();
 	call	_font_init
-;main.c:35: min_font = font_load(font_min); //36 tiles
+;gbdk_player.c:35: min_font = font_load(font_min); //36 tiles
 	ld	de, #_font_min
 	push	de
 	call	_font_load
 	pop	hl
-;main.c:36: font_set(min_font);
+;gbdk_player.c:36: font_set(min_font);
 	push	de
 	call	_font_set
 	pop	hl
-;main.c:38: set_bkg_palette(0,1,&background_palette[0]);
+;gbdk_player.c:38: set_bkg_palette(0,1,&background_palette[0]);
 	ld	de, #_background_palette
 	push	de
 	xor	a, a
@@ -106,14 +106,14 @@ _main::
 	push	af
 	call	_set_bkg_palette
 	add	sp, #4
-;main.c:40: set_bkg_data(37, 7, MapTiles); // starting at 37 because font shares first 36 slots of video memory
+;gbdk_player.c:40: set_bkg_data(37, 7, MapTiles); // starting at 37 because font shares first 36 slots of video memory
 	ld	de, #_MapTiles
 	push	de
 	ld	hl, #0x725
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;main.c:41: set_bkg_tiles(0,0,20,18, Map);
+;gbdk_player.c:41: set_bkg_tiles(0,0,20,18, Map);
 	ld	de, #_Map
 	push	de
 	ld	hl, #0x1214
@@ -123,15 +123,15 @@ _main::
 	push	af
 	call	_set_bkg_tiles
 	add	sp, #6
-;main.c:42: SHOW_BKG;
+;gbdk_player.c:42: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-;main.c:43: DISPLAY_ON;
+;gbdk_player.c:43: DISPLAY_ON;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x80
 	ldh	(_LCDC_REG + 0), a
-;main.c:45: set_sprite_palette(0,1,&sprite_palette[0]);
+;gbdk_player.c:45: set_sprite_palette(0,1,&sprite_palette[0]);
 	ld	de, #_sprite_palette
 	push	de
 	xor	a, a
@@ -139,7 +139,7 @@ _main::
 	push	af
 	call	_set_sprite_palette
 	add	sp, #4
-;main.c:49: set_sprite_data(0,2,Player);
+;gbdk_player.c:49: set_sprite_data(0,2,Player);
 	ld	de, #_Player
 	push	de
 	ld	hl, #0x200
@@ -155,11 +155,11 @@ _main::
 	ld	a, #0x4e
 	ld	(hl+), a
 	ld	(hl), #0x58
-;main.c:52: SHOW_SPRITES;
+;gbdk_player.c:52: SHOW_SPRITES;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-;main.c:54: set_win_tiles(0,0,5,1,WindowMap);
+;gbdk_player.c:54: set_win_tiles(0,0,5,1,WindowMap);
 	ld	de, #_WindowMap
 	push	de
 	ld	hl, #0x105
@@ -174,26 +174,28 @@ _main::
 	ldh	(_WX_REG + 0), a
 	ld	a, #0x78
 	ldh	(_WY_REG + 0), a
-;main.c:56: SHOW_WIN;
+;gbdk_player.c:56: SHOW_WIN;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x20
 	ldh	(_LCDC_REG + 0), a
-;main.c:61: }
+;gbdk_player.c:61: }
 	di
-;main.c:59: hUGE_init(&song);
+;gbdk_player.c:59: hUGE_init(&song);
 	ld	de, #_song
+	push	de
 	call	_hUGE_init
-;main.c:60: add_VBL(hUGE_dosound);
+	pop	hl
+;gbdk_player.c:60: add_VBL(hUGE_dosound);
 	ld	de, #_hUGE_dosound
 	push	de
 	call	_add_VBL
 	pop	hl
 	ei
-;main.c:63: while(1){
+;gbdk_player.c:63: while(1){
 00108$:
-;main.c:65: wait_vbl_done();
+;gbdk_player.c:65: wait_vbl_done();
 	call	_wait_vbl_done
-;main.c:76: switch(joypad()){
+;gbdk_player.c:76: switch(joypad()){
 	call	_joypad
 	ld	c, a
 	dec	a
@@ -208,7 +210,7 @@ _main::
 	sub	a, #0x40
 	jr	Z, 00105$
 	jr	00106$
-;main.c:77: case J_UP:
+;gbdk_player.c:77: case J_UP:
 00101$:
 ;c:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM+0
@@ -219,9 +221,9 @@ _main::
 	inc	bc
 	ld	a, (bc)
 	ld	(bc), a
-;main.c:79: break;
+;gbdk_player.c:79: break;
 	jr	00106$
-;main.c:81: case J_DOWN:
+;gbdk_player.c:81: case J_DOWN:
 00102$:
 ;c:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM+0
@@ -232,9 +234,9 @@ _main::
 	inc	bc
 	ld	a, (bc)
 	ld	(bc), a
-;main.c:83: break;
+;gbdk_player.c:83: break;
 	jr	00106$
-;main.c:85: case J_LEFT:
+;gbdk_player.c:85: case J_LEFT:
 00103$:
 ;c:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM+0
@@ -245,9 +247,9 @@ _main::
 	ld	a, (bc)
 	add	a, #0xfe
 	ld	(bc), a
-;main.c:87: break;
+;gbdk_player.c:87: break;
 	jr	00106$
-;main.c:89: case J_RIGHT:
+;gbdk_player.c:89: case J_RIGHT:
 00104$:
 ;c:/gbdk/include/gb/gb.h:1691: OAM_item_t * itm = &shadow_OAM[nb];
 	ld	bc, #_shadow_OAM
@@ -258,31 +260,31 @@ _main::
 	ld	a, (bc)
 	add	a, #0x02
 	ld	(bc), a
-;main.c:91: break;
+;gbdk_player.c:91: break;
 	jr	00106$
-;main.c:93: case J_SELECT:
+;gbdk_player.c:93: case J_SELECT:
 00105$:
-;main.c:102: NR10_REG = 0x16; 
+;gbdk_player.c:102: NR10_REG = 0x16; 
 	ld	a, #0x16
 	ldh	(_NR10_REG + 0), a
-;main.c:109: NR11_REG = 0x4E;
+;gbdk_player.c:109: NR11_REG = 0x4E;
 	ld	a, #0x4e
 	ldh	(_NR11_REG + 0), a
-;main.c:118: NR12_REG = 0x73;  
+;gbdk_player.c:118: NR12_REG = 0x73;  
 	ld	a, #0x73
 	ldh	(_NR12_REG + 0), a
-;main.c:123: NR13_REG = 0x00;   
+;gbdk_player.c:123: NR13_REG = 0x00;   
 	xor	a, a
 	ldh	(_NR13_REG + 0), a
-;main.c:132: NR14_REG = 0xC5;
+;gbdk_player.c:132: NR14_REG = 0xC5;
 	ld	a, #0xc5
 	ldh	(_NR14_REG + 0), a
-;main.c:136: }
+;gbdk_player.c:136: }
 00106$:
-;main.c:138: delay(25);
+;gbdk_player.c:138: delay(25);
 	ld	de, #0x0019
 	call	_delay
-;main.c:140: }
+;gbdk_player.c:140: }
 	jr	00108$
 _background_palette:
 	.dw #0x7c00
