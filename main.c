@@ -37,7 +37,7 @@ void main(){
 
     set_bkg_palette(0,1,&background_palette[0]);
     // set up background
-    set_bkg_data(37, 7, MapTiles); // starting at 37 because font shares first 36 slots of video memory
+    set_bkg_data(37, 7, bgtiles); // starting at 37 because font shares first 36 slots of video memory
     set_bkg_tiles(0,0,20,18, Map);
     SHOW_BKG;
     DISPLAY_ON;
@@ -51,7 +51,7 @@ void main(){
     move_sprite(0,88,78);
     SHOW_SPRITES;
 
-    set_win_tiles(0,0,5,1,WindowMap);
+    set_win_tiles(0,0,5,1,windowmap);
     move_win(7,120);
     SHOW_WIN;
 
